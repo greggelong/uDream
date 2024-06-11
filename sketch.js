@@ -3,7 +3,7 @@ let foo, foo1;
 let speakButton;
 let stops = [];
 let r 
-let s = 1
+let s = 0
 let bg
 // ll700 possible combinations
 // however I have added duplicates of gate and lou and others so they appear more often
@@ -26,7 +26,7 @@ function setup() {
     bg.resize(width,height)
     print(stops)
     angleMode(DEGREES)
-    frameRate(0.5)
+    frameRate(1)
     foo = new p5.Speech(); // speech synthesis object
     foo1 = new p5.Speech();
   //capture = createCaptu
@@ -87,11 +87,18 @@ function draw(){
     fill(255,0,0)
     text(c,-c.length*25,45)
     text(e,-e.length*8,100)
-    if (frameCount%10==0){
-        s++
-        s=s%stops.length
+    ///if (frameCount%10==0){
+     //   s++
+     //   s=s%stops.length
 
-    }
+    //}
+    foo1.onEnd = nextStop
+
+}
+
+function nextStop(){
+    s++
+    s=s%stops.length
 
 }
 
