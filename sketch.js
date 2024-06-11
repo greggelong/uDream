@@ -1,3 +1,6 @@
+
+let foo, foo1;
+let speakButton;
 let stops = [];
 let r 
 let s = 1
@@ -23,7 +26,10 @@ function setup() {
     bg.resize(width,height)
     print(stops)
     angleMode(DEGREES)
-    frameRate(1)
+    frameRate(0.5)
+    foo = new p5.Speech(); // speech synthesis object
+    foo1 = new p5.Speech();
+  //capture = createCaptu
 }
 
 function draw(){
@@ -66,12 +72,22 @@ function draw(){
     textSize(40)
     fill(255,0,0)
     text("下一站",-70,-75)
+    
+    foo.setLang("zh-CN");
+    
     let c = stops[s].chinese
+    foo.speak("下一站 ,"+ c)
+
     let e = stops[s].english
+
+    foo1.setLang("en-US");
+    foo1.speak("Next Stop: "+e); 
+
+    
     fill(255,0,0)
     text(c,-c.length*25,45)
     text(e,-e.length*8,100)
-    if (frameCount%5==0){
+    if (frameCount%10==0){
         s++
         s=s%stops.length
 
