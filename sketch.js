@@ -15,6 +15,7 @@ function setup() {
     //const allCombinations = generateCombinations();
     //console.log(allCombinations.length) 
     createCanvas(windowWidth,windowHeight)
+    pixelDensity(1)
     if(windowWidth<windowHeight){
         //width is small
         r = (windowWidth/2)*0.9 
