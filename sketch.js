@@ -29,10 +29,12 @@ function setup() {
     frameRate(1)
     foo = new p5.Speech(); // speech synthesis object
     foo1 = new p5.Speech();
+    showStop()
   //capture = createCaptu
 }
 
-function draw(){
+function showStop(){
+    push()
     background(255)
     tint(255,100)
     image(bg,0,0)
@@ -92,13 +94,16 @@ function draw(){
      //   s=s%stops.length
 
     //}
+    pop()
     foo1.onEnd = nextStop
+    
 
 }
 
 function nextStop(){
     s++
     s=s%stops.length
+    showStop()
 
 }
 
